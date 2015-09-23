@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dev Portal Blog feature.
+ */
+
+include_once 'dev_portal_blog.features.inc';

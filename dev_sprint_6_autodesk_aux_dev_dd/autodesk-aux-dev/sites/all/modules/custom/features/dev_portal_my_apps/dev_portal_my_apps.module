@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dev Portal My Apps feature.
+ */
+
+include_once 'dev_portal_my_apps.features.inc';

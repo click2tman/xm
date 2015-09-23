@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dev Portal FAQs feature.
+ */
+
+include_once 'dev_portal_faqs.features.inc';

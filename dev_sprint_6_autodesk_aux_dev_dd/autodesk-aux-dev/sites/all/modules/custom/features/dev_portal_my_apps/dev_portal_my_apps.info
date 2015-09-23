@@ -1,0 +1,16 @@
+name = Dev Portal My Apps
+description = This feature will modify the Apigee My Apps page
+core = 7.x
+package = Autodesk
+version = 7.x-1.0-alpha5
+project = dev_portal_my_apps
+dependencies[] = context
+dependencies[] = ctools
+dependencies[] = devconnect_developer_apps
+dependencies[] = devconnect_user
+dependencies[] = views
+features[context][] = my_apps
+features[ctools][] = context:context:3
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = dev_portal_developer_apps

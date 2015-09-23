@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dev Portal Partner Developer feature.
+ */
+
+include_once 'dev_portal_partner_developer.features.inc';

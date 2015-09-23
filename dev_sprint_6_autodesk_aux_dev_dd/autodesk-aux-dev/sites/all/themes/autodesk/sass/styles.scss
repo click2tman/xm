@@ -1,0 +1,1045 @@
+// Import Bootstrap Compass integration
+@import "bootstrap-compass";
+
+// Import custom Bootstrap variables
+@import "bootstrap-variables";
+
+// Import Bootstrap for Sass
+@import "bootstrap";
+
+// Import Max's styles
+@import "styles-max"; 
+
+/* 
+ * Author: Drupal FrontEnd Team - Autodesk
+ * Project: Autodesk - PJ108
+ * Team: Drupal FrontEnd Team
+ */
+
+/*
+ ============================================
+ ICON FONTS 
+ ============================================
+*/
+
+@font-face {
+	font-family: 'Autodesk-Icon-Fonts';
+	src:url('../fonts/adsk/Autodesk-Icon-Fonts.eot?-oalgrj');
+	src:url('../fonts/adsk/Autodesk-Icon-Fonts.eot?#iefix-oalgrj') format('embedded-opentype'),
+		url('../fonts/adsk/Autodesk-Icon-Fonts.ttf?-oalgrj') format('truetype'),
+		url('../fonts/adsk/Autodesk-Icon-Fonts.woff?-oalgrj') format('woff'),
+		url('../fonts/adsk/Autodesk-Icon-Fonts.svg?-oalgrj#Autodesk-Icon-Fonts') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'Autodesk-Icon-Fonts';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-adsk-eye:before {
+	content: "\e608";
+}
+.icon-adsk-settings:before {
+	content: "\e609";
+}
+.icon-adsk-video:before {
+	content: "\e60a";
+}
+.icon-adsk-message:before {
+	content: "\e60b";
+}
+.icon-adsk-user:before {
+	content: "\e60c";
+}
+.icon-adsk-arrows:before {
+	content: "\e60d";
+}
+.icon-adsk-image:before {
+	content: "\e60e";
+}
+.icon-adsk-audio:before {
+	content: "\e60f";
+}
+.icon-adsk-lock:before {
+	content: "\e610";
+}
+.icon-adsk-rss:before {
+	content: "\e611";
+}
+.icon-adsk-chat:before {
+	content: "\e612";
+}
+.icon-adsk-apps:before {
+	content: "\e613";
+}
+.icon-adsk-arrow:before {
+	content: "\e614";
+}
+.icon-adsk-arrow-next:before {
+	content: "\e615";
+}
+.icon-adsk-arrow-prev:before {
+	content: "\e616";
+}
+.icon-adsk-open:before {
+	content: "\e617";
+}
+.icon-adsk-close:before {
+	content: "\e618";
+}
+.icon-adsk-arrow-go:before {
+	content: "\e619";
+}
+.icon-adsk-edit:before {
+	content: "\e61a";
+}
+.icon-adsk-delete:before {
+	content: "\e61b";
+}
+.icon-adsk-place-order:before {
+	content: "\e600";
+}
+.icon-adsk-submit-order:before {
+	content: "\e601";
+}
+.icon-adsk-order-details:before {
+	content: "\e602";
+}
+.icon-adsk-return-subscription:before {
+	content: "\e603";
+}
+.icon-adsk-cancel-subscription:before {
+	content: "\e604";
+}
+.icon-adsk-product-price:before {
+	content: "\e605";
+}
+.icon-adsk-get-invoice:before {
+	content: "\e606";
+}
+.icon-adsk-get-licence:before {
+	content: "\e607";
+}
+
+/*
+ ============================================
+ GENERAL 
+ ============================================
+*/
+
+
+/*
+ ============================================
+ HELPERS 
+ ============================================
+*/
+
+.btn{
+  font-size: 15px;
+  position: relative;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  &.go{
+    position: relative;
+    padding-right: 40px;
+    &:after{ 
+      content:'\e619';
+      font-family: 'Autodesk-Icon-Fonts';
+      font-size: 17px;
+      font-weight: lighter;
+      display: inline-block;
+      padding-left: 10px;
+      top: 9px;
+      position: absolute;
+    }
+  }
+}
+
+.btn-default{
+  border-width: 2px;
+  &:hover{
+    color: #ffffff;
+    background-color: #1e97d4;
+    border-width: 2px;
+    border-color: #1e97d4;
+  }
+}
+
+.btn-primary{
+  border-width: 2px;
+  &:hover{
+    background-color: #1d5aa6;
+  } 
+}
+
+
+/*
+ ============================================
+ HEADER 
+ ============================================
+*/ 
+
+.front{
+  header{
+    margin-bottom: 0;
+  }
+}
+
+#navbar {
+  background-color: #f5f5f5;
+  border-color: #ffffff;
+  border-bottom: 1px solid #E8E8E8;
+  margin-bottom: 0;
+  box-shadow: 0 6px 6px -4px rgba(0, 0, 0, 0.05) inset;
+}
+
+body #navbar .nav > li {
+  &:first-child{
+    > a{
+      padding-right: 15px;
+      margin-right: 15px;
+      border-right: #cccccc solid 1px;
+      &:before{
+        content:'\e60c';
+        color: #aaaaaa;
+        font-family: 'Autodesk-Icon-Fonts';
+        padding-right: 7px;
+        display: inline-block;
+      }
+    }
+  }
+  > a {
+    color: #1b96d4;
+    padding: 0;
+    margin: 15px 0;
+    &:hover{
+      background: transparent;
+      text-decoration: underline;
+    }  
+  }
+  &.open{
+    > a {
+      background: transparent;
+    }  
+  }
+}
+ 
+a.logo{
+  font-size: 22px;
+  color: #666666;
+  text-decoration: none;
+  img {
+    margin-right: 5px;
+  }
+}
+
+.page-header {
+  margin: 30px 0 20px;
+  h1{
+    margin-top: 0;
+    font-size: 32px;
+  }
+}
+
+.page-user-me-apps{
+	.page-header {
+		.col-sm-6{
+			padding: 0;
+			h1{
+				margin-top: 10px;
+				text-transform: capitalize;
+			}
+			.btn.go{
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+.front{
+  #navigation{
+    height: 50px;
+    background:#888888 !important;
+    border-bottom: none !important;
+    ul li ul{
+      display: none !important;
+      z-index: -999; 
+    }
+  }
+}
+
+/* Navigation
+--------------------*/
+#navigation{
+  height: 101px;
+  background: linear-gradient(180deg, #888888 50%, #fffdfd 50%);
+  border-bottom: 1px solid #eeeeee;
+  .sf-menu.sf-style-white > li > a:focus{
+    background: darken(#888888, 10%) !important;
+  }
+  .sf-menu.sf-style-white > li > ul > li a:focus{
+    background: transparent !important;
+    color: #1b96d4;
+    padding: 18px 0 16px 0 !important;
+    border-bottom: #1b96d4 solid 2px; 
+  }
+  .sf-menu.sf-style-white.sf-navbar {
+    background: #888888 ;
+    margin-bottom: 0;
+    > li {
+      background: #888888;
+      &:hover{
+        > a{
+          background: darken(#888888, 10%);
+        }
+      }
+      &.sf-breadcrumb:hover{
+        > a{
+          background: #1b96d4;
+        }
+      }
+      &.sf-breadcrumb{
+        > a{
+          background: #1b96d4;
+        }
+        &.sfHover{
+          > a{
+            background: #1b96d4;
+          }
+          &:hover{
+            > a{
+              background: #1b96d4;
+            }
+          }
+        }
+      }
+      > a{
+        color: #ffffff;
+        padding: 18px 16px;
+      }
+      a{
+        text-decoration: none
+      }
+      > a{
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+      }
+      ul{
+        background-color: #fffdfd;
+        top: 50px;
+        li{
+          background-color: #fffdfd;
+          a{
+            padding: 18px 0;
+            margin-right: 32px;
+            &:hover, &.active{
+              color: #1b96d4;
+              background: transparent;
+              padding: 18px 0 16px 0;
+              border-bottom: #1b96d4 solid 2px; 
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.content-actions{
+	.tabs--primary{
+		margin-bottom: 20px;
+		> li + li {
+			margin-left: 10px;
+		}
+		> li > a{
+			background: #f5f5f5;
+			color: #333333;
+			padding: 8px 15px;
+			&:hover{
+				color: #1e97d4;
+			}
+			&.active{
+				background: #1b96d4;
+				color: #ffffff;
+			}
+		}
+	}
+	hr{
+		display: none;
+	}
+}
+
+
+/*
+ ============================================
+ CONTENT 
+ ============================================
+*/
+
+
+
+/* HOME (Banner)
+--------------------*/
+
+.front .page-header {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: auto;
+  border-bottom: 0;
+}
+
+.front .page-header-content > section{
+  width: 100%;
+}
+.front .page-header-content div section:before,
+.front .page-header-content div section:after{
+  content: none;
+}
+
+.front .page-header .field-items .field-item{
+    display: table;
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+    background-image: url('../images/autodesk_sample_banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.front .page-header .field-items .content{
+  background-image: url('../images/patterns/header-polygon-pattern.png');
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.front .page-header .field-items .content h1{
+  font-size: 40px;
+  line-height: 52px;
+}
+
+.front .page-header .field-items .content p{
+  color: #666666;
+  color: #666666;
+  font-size: 17px;
+  margin-bottom: 15px; 
+}
+
+/* Home
+--------------------*/
+ 
+#block-views-api-reference-docs-block-1{
+  background-color: #1b94d1;
+  background-image: url('../images/patterns/products-left-pattern.png'), url('../images/patterns/products-right-pattern.png');
+  background-position: left top, right bottom;
+  background-repeat: no-repeat;
+  padding: 75px 0;
+  h3{
+    color: #ffffff;
+    font-size: 32px;
+    text-align: center;
+  }
+  .row{
+    padding: 45px 0 20px 0;
+    a{
+      color: #999999;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+      text-align: center;
+      background-color: #ffffff;
+      padding: 30px;
+      border: 2px solid #ffffff;  
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      -moz-box-shadow: 0px 2px 6px rgba(0, 0, 0, .25);
+      -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, .25);
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, .25);
+		-webkit-transition: all .2s ease-in-out;
+		-moz-transition: all .2s ease-in-out;
+		-o-transition: all .2s ease-in-out;
+		transition: all .2s ease-in-out;
+      &:hover{
+        border: 2px solid #9cbbda;
+      }
+      > div{
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+#block-views-devconnect-blog-block-2, #block-views-dev-portal-blog-content-block-2{
+  background-image: url('../images/patterns/blogforum-left-pattern.png'), url('../images/patterns/blogforum-right-pattern.png');
+  background-position: left bottom, right top;
+  background-repeat: no-repeat;
+  padding: 75px 0;
+  h3{
+    font-size: 32px;
+    text-align: center;
+    margin-top: 0;
+  }
+  .row{
+    padding: 45px 0 20px 0;
+    > div{
+      > a:first-child{
+        color: #333333;
+        font-size: 22px;
+      }
+      p{
+        margin: 10px 0 25px 0;
+      }
+    }
+  }
+}
+
+#block-bean-building-an-app-home{
+  background-color: #1d5aa6;
+  background-image: url('../images/patterns/steps-left-pattern.png');
+  background-position: left top;
+  background-repeat: no-repeat;
+  padding: 75px 0; 
+  h3{
+    color: #ffffff;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 0;
+  }
+  .row{
+    padding: 45px 0 20px 0;
+  }
+  .col-md-4{
+    text-align: center;
+    > div{
+      &:first-child{
+        padding: 0 0 10px 0;
+        display: block;
+      }
+      &:nth-child(3){
+        text-align: left;
+        padding: 0 40px;
+        > div{
+          display: inline-block;
+          float: left;
+          &:first-child{ 
+            color: #89cce4;
+            font-size: 48px;
+            line-height: 48px;
+            padding-right: 15px;
+            width: 15%;
+          }
+          &:last-child{
+            color: #ffffff;
+            padding: 1px 0 0 0;
+            width: 85%;
+          }
+        }
+      }
+    }
+    h5{
+      color: #ffffff;
+      font-size: 24px;
+    }
+  }
+  .btn{
+    color: #1d5aa6;
+    font-size: 18px;
+    font-weight: lighter;
+    padding: 17px 43px 16px 50px;
+    &:before{
+      content:'\e613';
+      font-family: 'Autodesk-Icon-Fonts';
+      font-size: 34px;
+      display: inline-block;
+      position: absolute;
+      top: 6px;
+      left: 9px;
+    }
+    &:after{
+      font-size: 19px;
+      top: 17px;
+    }
+    &:hover{
+      color: #ffffff;
+    }
+  }
+}
+ 
+/* FAQ
+--------------------*/
+
+.faq{
+  .accordion{
+    .panel{
+      box-shadow: none;
+    }
+    .panel-heading{
+      padding: 0;
+      background-color: transparent; 
+      border: none;
+      a{
+        font-size: 24px;
+        color: #1b96d4;
+        text-decoration: none;
+        display: inline-block;
+        padding: 20px 28px 20px;
+        width: 100%;
+        position: relative;
+        &:before{
+          content:'\e618';
+          font-family: 'Autodesk-Icon-Fonts';
+          font-size: 18px;
+          display: inline-block;
+          position: absolute;
+          top: 23px;
+          left: 1px;
+        }
+        &.collapsed{
+          text-decoration: none;
+          &:before{
+            content:'\e617';
+            font-family: 'Autodesk-Icon-Fonts';
+          }
+        }
+      }
+    }
+    .panel-default{
+      border: none;
+      border-bottom: #eeeeee 1px solid;
+      .panel-body{
+         border: none;
+         padding: 0 0 25px 28px;
+      }
+      &:last-child{
+        border-bottom: none;
+        .panel-body{
+           border-bottom: #eeeeee 1px solid;
+        }
+      }
+    }
+  }
+}
+
+/* My Apps -> Submitted Apps
+--------------------*/
+
+.my-apps-accordion{
+	&:last-child{
+		.panel-default{
+			border: none;
+			border-bottom: none;
+		}
+	}
+	margin-bottom: 25px;
+	.panel{
+	  box-shadow: none;
+	}
+	.panel-heading{
+	  padding: 0;
+	  background-color: transparent; 
+	  border: none;
+	  a{
+		font-size: 24px;
+		color: #1b96d4;
+		text-decoration: none;
+		display: inline-block;
+		padding: 0 0 20px 28px;
+		width: 100%;
+		position: relative;
+		&:before{
+		  content:'\e618';
+          font-family: 'Autodesk-Icon-Fonts';
+          font-size: 18px;
+          display: inline-block;
+          position: absolute;
+          top: 3px;
+          left: 1px;
+		}
+		&.collapsed{
+		  text-decoration: none;
+		  border: none;
+		  &:before{
+			content:'\e617';
+            font-family: 'Autodesk-Icon-Fonts';
+		  }
+		}
+		> div{
+			padding: 0;  
+		}
+		> div:last-child{
+			color: #666666;
+		  	font-size: 15px;
+			margin-top: 20px; 
+		} 
+		> div.text-right{
+		  color: #666666;
+		  font-size: 18px;
+		  padding-top: 8px;
+		}
+	  }
+	}
+	.panel-body{
+	  border-top: none !important;
+	  border-bottom: #eeeeee 1px solid;
+	  padding-top: 0;
+	  padding:0 0 20px 28px;
+		.app-data{
+			margin-bottom: 15px;
+			> div{
+				font-size: 15px;
+				&:first-child{
+					font-weight: bold;
+    				font-size: 17px;
+				}
+			}
+		}
+		.actions-links{
+			a{
+				font-size: 15px;
+				display: inline-block;
+				margin-right: 10px;
+			}
+		}
+	}
+	
+	.panel-default{
+		border: none;
+		border-bottom: #eeeeee 1px solid;
+	}
+}
+
+/* My Apps -> Add App
+--------------------*/
+#devconnect-developer-apps-edit-form{
+	h3{
+		font-size: 24px;
+		text-transform: none;
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid #eeeeee;
+	}
+	.form-item{
+		margin-top: 20px;
+	}
+	label{
+		font-weight: normal;
+	}
+	.btn-default{
+		color: #ffffff;
+		background: #a4a4a4;
+		border-color: #a4a4a4;
+		&:hover{
+			background: darken(#a4a4a4, 10%);
+			border-color: darken(#a4a4a4, 10%);
+		}
+	}
+}
+
+#api_product{
+    margin: 0 -10px;
+}
+
+#api_product::after{
+    content: ' ';
+    clear: both;
+    float: none;
+    display: table;
+    width: 100%;
+}
+
+#api_product > div{
+    display: block;
+    float: left;
+    width: 25%;
+    margin: 0 0 20px 0 !important;
+    padding: 0 10px;
+}
+
+@media screen and (max-width: 992px) {
+    #api_product > div{
+        width: 33.3%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #api_product{
+        margin: 0 -10px;
+    }
+    #api_product > div{
+        width: 50%;
+        margin-bottom: 20px !important;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    #api_product > div{
+        width: 100%;
+    }
+}
+
+/*#api_product > div:nth-child(3n+3){
+    padding: 0 0 0 0;
+}*/
+
+#api_product > div input{
+    display: none;
+}
+
+#api_product > div label{
+    display: block;
+	background-image: url('../images/icon_place_order.png');
+	background-position: center 40px;
+	background-repeat: no-repeat;
+    color: #999999;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 17px;
+	text-align: center;
+	background-color: #ffffff;
+	padding: 150px 30px 30px 30px;
+	height: 100%;
+	border: 2px solid #ffffff;  
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0px 2px 6px rgba(0, 0, 0, .25);
+	-webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, .25);
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, .25);		
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	&:hover{
+		border: 2px solid #9cbbda;
+	}
+	&.checked{
+		border: #2962ab solid 2px;
+	}
+	.apiproduct-description{
+		display: none;
+	}
+    &[for="edit-api-product-prod-ddws-invoice"]{
+      background-image: url('../images/icons/product-icons-png/adsk-product-icons-07.png');
+    }
+    &[for="edit-api-product-prod-ddws-license"]{
+      background-image: url('../images/icons/product-icons-png/adsk-product-icons-08.png');
+    }
+    &[for="edit-api-product-prod-ddws-get-orderdetailsandlist"]{
+      background-image: url('../images/icons/product-icons-png/adsk-product-icons-03.png');
+    }
+    &[for="edit-api-product-prod-dev-ddws-invoice"]{
+      background-image: url('../images/icons/product-icons-png/adsk-product-icons-02.png');
+    }
+    &[for="edit-api-product-prod-ddws-get-invoices"]{
+      background-image: url('../images/icons/product-icons-png/adsk-product-icons-04.png');
+    }
+    &[for="edit-api-product-prod-ddws-get-license"]{
+      background-image: url('../images/icons/product-icons-png/adsk-product-icons-06.png');
+    }
+  
+}
+
+/* My Apps -> Console
+--------------------*/
+
+iframe{
+	border-top:rgb(205, 205, 205) solid 1px;
+	border-left-width: 0;
+}
+
+/* My Apps -> API Documentation
+--------------------*/
+
+.view-smartdocs-models {
+	.model-info {
+    	border-bottom: 1px solid #eeeeee;
+    	padding: 10px 0 20px 0;
+		&:last-child{
+			border-bottom: none;
+		}
+		.views-field-description{
+			margin-top: 10px;
+		}
+		a{
+			font-family: Arial;
+			font-weight: normal;
+			font-size: 24px;
+			color: #1b96d4;
+			text-decoration: none;
+		}
+	}
+}
+
+/* My Apps -> API Documentation Method Details
+--------------------*/
+
+.model-description{
+	font-size: 15px;
+	color: #666666;
+}
+.view-display-id-modelindex{
+	h3.method-tag-header, 
+	h3.method-tag-header{
+		font-size: 28px;
+		margin-top: 35px;
+		margin-bottom: 0;
+		&:first-child{
+			margin-top: 25px;
+		}
+	}
+	.views-row > div {
+		height: 100%;
+		> div {
+			height: 100%;
+			> div {
+				height: 100%;
+			}
+		}
+	}
+	.method_details.clearfix{
+		padding: 0;
+		width: 100%;
+		display: table;
+		border-color: #ececec;
+        &:hover{
+          > div > div > p.GET{
+              background: darken(#b5e0f4, 10%);
+          }
+          > div > div > p.POST{
+              background: darken(#dbebc6, 10%);
+          }
+          > div > div > p.PUT{
+              background: darken(#fff6d8, 10%);
+          }
+        }
+		> div{
+			float: none;
+			vertical-align: middle;
+			display: table-cell;
+			&.title-header, &.description-header{
+				color: #666666;
+				font-size: 15px;
+				text-transform: none;	
+				padding: 25px 0 20px 0;
+				height: auto !important;
+			}
+			&:first-child{
+				width: 50%;
+				> div{
+					&:first-child{
+						padding: 0;
+						width: auto;
+						height: 100%;
+						display: table;
+						> p, > div{
+							color: #333333;
+							font-size: 18px;
+							text-transform: capitalize;
+							float: none;
+							margin: 0;
+							height: 100%;
+							min-width: 102px;
+							max-width: 102px;
+							display: table-cell;
+							padding: 44px 20px;
+							vertical-align: middle;
+							border-radius: 0;
+							position: relative;
+                            -webkit-transition: all .2s ease-in-out;
+                            -moz-transition: all .2s ease-in-out;
+                            -o-transition: all .2s ease-in-out;
+                            transition: all .2s ease-in-out;
+							&.GET{
+								background: #b5e0f4;
+							}
+							&.POST{
+								background: #dbebc6;
+							}
+                            &.PUT{
+								background: #fff6d8;
+							}
+							&.lock{
+								&:before{
+									content: '\e610';
+									color: #999999;
+									font-family: 'Autodesk-Icon-Fonts';
+									font-size: 14px;
+									position: absolute;
+									top: 9px;
+									right: 7px;
+								}
+							}
+						}
+						> span{
+							display: none;
+						}
+					}
+					&:last-child{
+						padding: 25px 15px;
+						max-width: none;
+						a{
+							font-size: 18px;
+						}
+					}
+				}
+			}
+			
+		}
+	}
+}
+
+    
+/*
+ ============================================
+ FOOTER 
+ ============================================
+*/
+.front{
+  .footer{
+    margin-top: 0;
+  }
+}
+.footer{
+  color: #666666;
+  background-color: #eeeeee;
+  text-align: center;
+  .footer-links{
+    display: inline-block;
+    margin-bottom: 20px;
+    li{
+      display: inline-block;
+      margin: 0;
+      padding: 5px 15px 5px 10px;
+      border-right: #cccccc solid 1px;
+      &:last-child{
+        border-right: none;
+      }
+      a{
+        padding: 0;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

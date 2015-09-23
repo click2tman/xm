@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dev Portal Base Fields feature.
+ */
+
+include_once 'dev_portal_base_fields.features.inc';

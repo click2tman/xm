@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the DevPortal Company feature.
+ */
+
+include_once 'devportal_company.features.inc';

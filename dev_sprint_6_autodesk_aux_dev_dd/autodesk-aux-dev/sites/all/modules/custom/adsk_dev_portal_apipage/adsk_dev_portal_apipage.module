@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Module file for adsk_dev_portal_apipage.
+ */
+
+/**
+ * Implements hook_permission().
+ *
+ */
+function adsk_dev_portal_apipage_permission() {
+  return array(
+    'access API page' => array(
+      'title' => t('Access API page'),
+      'description' => t('Allow users to access the API page'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function adsk_dev_portal_apipage_menu() {
+
+  $items['apiconsole'] = array(
+    'title' => 'API Console',
+    'page callback' => 'adsk_dev_portal_apipage',
+    'access callback' => TRUE,
+    'expanded' => TRUE,
+  );
+
+  return $items;
+}
+
+/**
+ * Constructs a simple API page.
+ */
+function adsk_dev_portal_apipage() {
+  return array('#markup' => '<iframe height="600" width="100%" scrolling="no" src="https://apigee.com/calvin.chiu/embed/console/ddws"></iframe>');
+}

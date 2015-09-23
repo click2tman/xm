@@ -1,0 +1,4 @@
+name = Autodesk API page
+description = Displays the API console at /apiconsole
+package = Autodesk
+core = 7.x

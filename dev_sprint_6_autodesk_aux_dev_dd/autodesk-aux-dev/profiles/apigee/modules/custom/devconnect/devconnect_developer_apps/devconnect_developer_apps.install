@@ -1,0 +1,182 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function devconnect_developer_apps_install() {
+  _devconnect_developer_apps_assign_perms();
+  _devconnect_developer_apps_register_cache_handlers();
+  variable_set('devconnect_developer_apps_unescaped', 1);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function devconnect_developer_apps_uninstall() {
+  variable_del('cache_class_developer_app');
+  variable_del('cache_class_api_product');
+}
+
+function devconnect_developer_apps_schema() {
+  $schema['dc_dev_app_previous_status'] = array(
+    'description' => 'Stores previous app status',
+    'fields' => array(
+      'app_id' => array(
+        'description' => 'Primary key: unique App ID.',
+        'type' => 'char',
+        'length' => 36, // UUID including hyphens
+        'not null' => TRUE,
+      ),
+      'org_name' => array(
+        'description' => 'Org name',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'status' => array(
+        'description' => 'Overall status: -1 = revoked, 0 = pending, 1 = approved',
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+      )
+    ),
+    'primary key' => array('app_id')
+  );
+  $schema['dc_api_product'] = array(
+    'description' => 'Caches API Product info',
+    'fields' => array(
+      'name' => array(
+        'description' => 'Primary Key: machine name of the API Product',
+        'type' => 'char',
+        'length' => 64,
+        'not null' => TRUE
+      ),
+      'display_name' => array(
+        'description' => 'Display name of the API Product',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+      ),
+      'approval_type' => array(
+        'description' => 'Key approval type: 0 = auto, 1 = manual',
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE
+      ),
+      'description' => array(
+        'description' => 'API Product description',
+        'type' => 'text',
+        'size' => 'medium',
+        'not null' => TRUE
+      ),
+      'is_public' => array(
+        'description' => 'Indicates whether API Product is private or public',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 1
+      ),
+      'org_name'      => array(
+        'description' => 'Org name',
+        'type'        => 'varchar',
+        'length'      => 255,
+        'not null'    => TRUE,
+      ),
+    ),
+    'primary key' => array('name', 'org_name')
+  );
+  return $schema;
+}
+
+/**
+ * Registers custom cache handlers.
+ */
+function _devconnect_developer_apps_register_cache_handlers() {
+  variable_set('cache_class_api_product', 'Drupal\devconnect_developer_apps\ApiProductCache');
+}
+
+/**
+ * Assigns the "View/Create/Edit/Delete Developer Apps" permissions to all
+ * authenticated users, and assigns "Administer Developer Apps" to admins.
+ */
+function _devconnect_developer_apps_assign_perms() {
+  $perms = array();
+  foreach (array('view', 'edit', 'create', 'delete') as $action) {
+    $perms[] = "$action developer apps";
+  }
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, $perms);
+  $roles = user_roles();
+  foreach ($roles as $rid => $role) {
+    if (stripos($role, 'administrator') !== FALSE) {
+      user_role_grant_permissions($rid, array('administer developer apps'));
+    }
+  }
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function devconnect_developer_apps_requirements($phase) {
+  $requirements = array();
+
+  if ($phase == 'runtime' && variable_get('devconnect_developer_apps_unescaped', 0) != 1) {
+    $requirements['developer-app-attributes-rebuild'] = array(
+      'severity' => REQUIREMENT_WARNING,
+      'title' => t('Developer app attribute rebuild needed'),
+      'value' => t('Some developer apps may have corrupted attributes (including display name) due to superfluous HTML entity escaping. <a href="!url">Click here to rebuild attributes.</a>', array('!url' => url('admin/config/devconnect/apps/rebuild-attributes')))
+    );
+  }
+
+  if ($phase != 'runtime' || !array_key_exists('PANTHEON_ENVIRONMENT', $_SERVER) || $_SERVER['PANTHEON_ENVIRONMENT'] != 'live') {
+    return $requirements;
+  }
+  if (variable_get('devconnect_api_product_cache_enable', 1)) {
+    $requirements['api-product-cache'] = array(
+      'severity' => REQUIREMENT_OK,
+      'value' => t('The API Product cache is enabled.'),
+      'title' => t('API Product caching')
+    );
+  }
+  else {
+    $requirements['api-product-cache'] = array(
+      'severity' => REQUIREMENT_WARNING,
+      'value' => t('The API Product cache is disabled. In a production environment, this degrades performance.'),
+      'title' => t('API Product caching')
+    );
+  }
+
+  return $requirements;
+}
+
+/**
+ * Assigns default permissions for developer apps.
+ */
+function devconnect_developer_apps_update_7424(&$sandbox) {
+  _devconnect_developer_apps_assign_perms();
+}
+
+/**
+ * Register api-products cache handler.
+ */
+function devconnect_developer_apps_update_7430() {
+  _devconnect_developer_apps_register_cache_handlers();
+}
+
+/**
+ * Remove obsolete developer-app cache handler.
+ */
+function devconnect_developer_apps_update_7433() {
+  variable_del('cache_class_developer_app');
+  $tables = array('dc_dev_app', 'dc_dev_app_api_products', 'dc_dev_app_attributes');
+  foreach ($tables as $table) {
+    if (db_table_exists($table)) {
+      db_drop_table($table);
+    }
+  }
+
+  if (variable_get('devconnect_developer_apps_unescaped', 0) == 0) {
+    $t = get_t();
+    return $t('Some developer apps may have corrupted attributes (including display name) due to superfluous HTML entity escaping. You should visit Configuration » Dev Portal Settings » Application settings » Rebuild app attributes to remedy this.');
+  }
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dev Portal API Product Role Access feature.
+ */
+
+include_once 'dev_portal_apiproducts_by_role.features.inc';

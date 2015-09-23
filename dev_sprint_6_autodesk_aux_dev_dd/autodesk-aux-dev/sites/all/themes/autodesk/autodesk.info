@@ -1,0 +1,82 @@
+name = Autodesk
+description = A custom theme for the Autodesk Developer Portal with the Bootstrap responsive framework as the base.
+core = 7.x
+base theme = bootstrap
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[navigation]     = 'Navigation'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Autodesk Specific Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[homepage_header] = Homepage Header
+regions[frontpage_panel_left] = Frontpage Panel Left
+regions[frontpage_panel_center] = Frontpage Panel Center
+regions[frontpage_panel_right] = Frontpage Panel Right
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = stylesheets/styles.css
+
+; For information on choosing the desired method, please read the Drupal
+; Bootstrap sub-theme "how-to" documentation:
+; https://drupal.org/node/1978010
+
+;----------------------------------
+; METHOD 1: Bootstrap Source Files
+;----------------------------------
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+
+scripts[] = 'javascripts/bootstrap/affix.js'
+scripts[] = 'javascripts/bootstrap/alert.js'
+scripts[] = 'javascripts/bootstrap/button.js'
+scripts[] = 'javascripts/bootstrap/carousel.js'
+scripts[] = 'javascripts/bootstrap/collapse.js'
+scripts[] = 'javascripts/bootstrap/dropdown.js'
+scripts[] = 'javascripts/bootstrap/modal.js'
+scripts[] = 'javascripts/bootstrap/tooltip.js'
+scripts[] = 'javascripts/bootstrap/popover.js'
+scripts[] = 'javascripts/bootstrap/scrollspy.js'
+scripts[] = 'javascripts/bootstrap/tab.js'
+scripts[] = 'javascripts/bootstrap/transition.js'
+
+; ;;;;;;;;;;;;;;;;;;;;;
+; ;; Custom Scripts
+; ;;;;;;;;;;;;;;;;;;;;;
+
+scripts[] = bower_components/waypoints/lib/jquery.waypoints.min.js
+scripts[] = bower_components/matchHeight/jquery.matchHeight-min.js
+scripts[] = bower_components/jquery-validation/dist/jquery.validate.js
+scripts[] = 'javascripts/global.js'
+
+; ; Disable BootstrapCDN if using Bootstrap source files in your sub-theme.
+settings[bootstrap_cdn] = ''
+
+
+; ;-------------------------
+; ; METHOD 2: Bootstrap CDN
+; ;-------------------------
+;
+; Method 2 uses BootstrapCDN, the only thing you might need to provide here
+; is overrides to Bootstrap theme settings. Copy them here from the base theme
+; to override.

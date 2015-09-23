@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dev Portal Bean Blocks feature.
+ */
+
+include_once 'dev_portal_bean_blocks.features.inc';

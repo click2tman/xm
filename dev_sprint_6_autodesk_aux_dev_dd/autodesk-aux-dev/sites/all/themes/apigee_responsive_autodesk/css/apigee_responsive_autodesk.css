@@ -1,0 +1,406 @@
+/* 
+ * Author: Drupal FrontEnd Team - Autodesk
+ * Project: Autodesk - PJ108
+ * Team: Drupal FrontEnd Team
+ */
+
+/*
+ ============================================
+ GENERAL 
+ ============================================
+*/
+
+
+/*
+ ============================================
+ HELPERS 
+ ============================================
+*/
+
+
+/*
+ ============================================
+ HEADER 
+ ============================================
+*/
+
+#navbar {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-bottom: 1px solid #E8E8E8;
+    box-shadow: 0 6px 6px -4px rgba(0, 0, 0, 0.05) inset;
+}
+
+body #navbar .nav > li > a {
+    color: #484848;
+}
+
+body #navbar .nav > li > a.active,
+body #navbar .nav > li > a:hover {
+    color: #ffffff;
+}
+
+a.logo img {
+    margin-top: 6px;
+}
+
+/*
+ ============================================
+ CONTENT 
+ ============================================
+*/
+
+/* HOME (Banner)
+--------------------*/
+
+/*.front .search-container{
+  margin-bottom: 15px;
+}
+
+.front .page-header {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 400px;
+}
+
+.front .page-header-content,
+.front .page-header-content > div,
+.front .page-header-content > div > section{
+  height: 100%;
+}
+
+.front .page-header-content > div > section{
+  display: table;
+  width: 100%;
+}
+.front .page-header-content > div > section:before,
+.front .page-header-content > div > section:after{
+  content: none;
+}
+
+.front .page-header field-item .content{
+  background-image: url('../img/autodesk_sample_banner.jpg');
+  background-size: cover;
+  background-position: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.front .page-header .content h1{
+  font-size: 27px;
+  line-height: 35px;
+}
+
+.view-display-id-block_1 h3{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px !important;
+  margin-bottom: 40px !important;
+}
+
+.view-display-id-block_1 .col-lg-4{
+  margin-bottom: 30px;
+}
+
+.view-display-id-block_1 .col-lg-4 > div{
+  display: table;
+  width: 100%;
+}
+
+.view-display-id-block_1 .col-lg-4 > div a{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 50px;
+  border: #eee solid 2px;
+  -moz-box-shadow: 0 1px 6px -1px #cecece;
+  -webkit-box-shadow: 0 1px 6px -1px #cecece;
+  box-shadow: 0 1px 6px -1px #cecece;
+}
+
+.view-display-id-block_2 h3{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px !important;
+  margin-bottom: 40px !important;
+} 
+
+.view-display-id-block_2 a{
+    font-size: 17px;
+    display: inline-block;
+    margin-bottom: 15px;
+} 
+
+.view-display-id-block_2 p a{
+    font-size: 14px;
+} 
+
+#block-block-1 > div:first-child{
+  text-align: center;
+  margin-top: 60px !important;
+  margin-bottom: 40px !important;
+}
+
+#block-block-1 > div h3{
+  font-size: 20px; 
+}
+
+#block-block-1 .col-md-4{
+ padding: 0 30px;
+}
+
+#block-block-1 .col-md-4 > div{
+  display: table;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#block-block-1 .col-md-4 > div > div{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 50px;
+  border: #eee solid 2px;
+  -moz-box-shadow: 0 1px 6px -1px #cecece;
+  -webkit-box-shadow: 0 1px 6px -1px #cecece;
+  box-shadow: 0 1px 6px -1px #cecece;
+}
+
+#block-block-1 .col-md-4 p span{
+ font-size:30px;
+}
+*/
+
+/* FAQ
+--------------------*/
+
+.faq .accordion .panel-heading{
+    padding: 0;
+}
+
+.faq .accordion .panel-heading a{
+    background-image: url('../img/close.png');
+    background-position-x: 7px;
+    background-position-y: center;
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding: 10px 35px;
+    width: 100%
+}
+
+.faq .accordion .panel-heading a.collapsed{
+    background-image: url('../img/open.png');
+}
+
+/* Add App
+--------------------*/
+
+#devconnect-developer-apps-edit-form h3{
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#api_product{
+    margin: 0 -20px;
+}
+
+#api_product::after{
+    content: ' ';
+    clear: both;
+    float: none;
+    display: table;
+    width: 100%;
+}
+
+#api_product > div{
+    display: table;
+    float: left;
+    width: 25%;
+    margin: 0 0 30px 0 !important;
+    padding: 0 15px;
+}
+
+@media screen and (max-width: 992px) {
+    #api_product > div{
+        width: 33.3%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #api_product{
+        margin: 0 -10px;
+    }
+    #api_product > div{
+        width: 50%;
+        margin-bottom: 20px !important;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    #api_product > div{
+        width: 100%;
+    }
+}
+
+
+/*#api_product > div:nth-child(3n+3){
+    padding: 0 0 0 0;
+}*/
+
+#api_product > div input{
+    display: none;
+}
+
+#api_product > div label{
+    display: table-cell;
+    vertical-align: middle;
+    border: #eee solid 2px;
+    padding: 15px;
+    -moz-box-shadow: 0 1px 6px -1px #cecece;
+    -webkit-box-shadow: 0 1px 6px -1px #cecece;
+    box-shadow: 0 1px 6px -1px #cecece;
+}
+
+#api_product > div label:hover{
+   border-color: #cccccc;
+}
+
+#api_product > div label.checked{
+    border: #4ecdc4 solid 2px;
+}
+    
+/*
+ ============================================
+ FOOTER 
+ ============================================
+*/
+
+/* HOME (Banner)
+--------------------*/
+
+.front .search-container{
+  margin-bottom: 15px;
+}
+
+.front .page-header {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: auto;
+}
+
+.front .page-header-content > section{
+  width: 100%;
+}
+.front .page-header-content div section:before,
+.front .page-header-content div section:after{
+  content: none;
+}
+
+.front .page-header .field-items{
+  height: 400px;
+}
+
+.front .page-header .field-items .field-item{
+  
+    display: table;
+    width: 100%;
+    height: 100%;
+
+}
+
+.front .page-header .field-items .content{
+  background-image: url('../img/autodesk_sample_banner.jpg');
+  background-size: cover;
+  background-position: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.front .page-header .field-items .content h1{
+  font-size: 27px;
+  line-height: 35px;
+}
+
+.view-display-id-block_1 h3{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px !important;
+  margin-bottom: 40px !important;
+}
+
+.view-display-id-block_1 .col-lg-4{
+  margin-bottom: 30px;
+}
+
+.view-display-id-block_1 .col-lg-4 > div{
+  display: table;
+  width: 100%;
+}
+
+.view-display-id-block_1 .col-lg-4 > div a{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 50px;
+  border: #eee solid 2px;
+  -moz-box-shadow: 0 1px 6px -1px #cecece;
+  -webkit-box-shadow: 0 1px 6px -1px #cecece;
+  box-shadow: 0 1px 6px -1px #cecece;
+}
+
+.view-display-id-block_2 h3{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px !important;
+  margin-bottom: 40px !important;
+} 
+
+.view-display-id-block_2 a{
+    font-size: 17px;
+    display: inline-block;
+    margin-bottom: 15px;
+} 
+
+.view-display-id-block_2 p a{
+    font-size: 14px;
+} 
+
+#block-bean-building-an-app-home .field-item > div:first-child{
+  text-align: center;
+  margin-top: 60px !important;
+  margin-bottom: 40px !important;
+}
+
+#block-bean-building-an-app-home .field-item h3{
+  font-size: 20px; 
+}
+
+#block-bean-building-an-app-home .field-item .col-md-4{
+ padding: 0 30px;
+}
+
+#block-bean-building-an-app-home .field-item .col-md-4 > div{
+  display: table;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#block-bean-building-an-app-home .field-item .col-md-4 > div > div{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 50px;
+  border: #eee solid 2px;
+  -moz-box-shadow: 0 1px 6px -1px #cecece;
+  -webkit-box-shadow: 0 1px 6px -1px #cecece;
+  box-shadow: 0 1px 6px -1px #cecece;
+}
+
+#block-bean-building-an-app-home .field-item .col-md-4 p span{
+ font-size:30px;
+}
